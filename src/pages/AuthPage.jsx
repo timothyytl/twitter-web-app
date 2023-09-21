@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../components/AuthProvider"
 
 export default function AuthPage() {
-  const loginImage = "https://sig1.co/img-twitter-1"
+  const loginImage =
+    "https://img.freepik.com/premium-vector/new-twitter-logo-x-2023-twitter-x-logo-vector-download_691560-10794.jpg"
 
   const [modalShow, setModalShow] = useState(null)
   const handleShowSignUp = () => setModalShow("SignUp")
@@ -61,8 +62,11 @@ export default function AuthPage() {
 
   return (
     <Row>
-      <Col sm={6}>
-        <Image src={loginImage} fluid />
+      <Col
+        sm={6}
+        className="d-flex justify-content-center align-items-center bg-black"
+      >
+        <Image src={loginImage} width="450px" fluid />
       </Col>
       <Col sm={6} className="p-4">
         <i
@@ -70,10 +74,10 @@ export default function AuthPage() {
           style={{ fontSize: 50, color: "dodgerblue" }}
         ></i>
         <p className="mt-5" style={{ fontSize: 64 }}>
-          Happening Now
+          <strong>Happening Now</strong>
         </p>
         <h2 className="my-5" style={{ fontSize: 31 }}>
-          Join Twitter today.
+          <strong>Join today.</strong>
         </h2>
         <Col sm={5} className="d-grid gap-2">
           <Button
@@ -81,28 +85,36 @@ export default function AuthPage() {
             variant="outline-dark"
             onClick={handleGoogleLogin}
           >
-            <i className="bi bi-google"></i> Sign up with Google
+            <i className="bi bi-google mx-2"></i>
+            <strong>Sign up with Google</strong>
           </Button>
           <Button className="rounded-pill" variant="outline-dark">
-            <i className="bi bi-apple"></i> Sign up with Apple
+            <i className="bi bi-apple mx-2"></i>{" "}
+            <strong>Sign up with Apple</strong>
+          </Button>
+          <Button className="rounded-pill" variant="outline-dark">
+            <i className="bi bi-facebook mx-2"></i>{" "}
+            <strong>Sign up with Facebook</strong>
           </Button>
           <p style={{ textAlign: "center" }}>or</p>
           <Button className="rounded-pill" onClick={handleShowSignUp}>
             Create an account
           </Button>
-          <p style={{ fontSize: "12px" }}>
-            By signing up, you agree to the Terms of Service and Privacy Policy,
-            including Cookie Use.
+          <p style={{ fontSize: "12px", color: "gray" }}>
+            By signing up, you agree to the{" "}
+            <span style={{ color: "dodgerblue" }}>Terms of Service</span> and{" "}
+            <span style={{ color: "dodgerblue" }}>Privacy Policy</span>,
+            including <span style={{ color: "dodgerblue" }}>Cookie Use.</span>
           </p>
-          <p className="mt-5" style={{ fontSize: "bold" }}>
-            Already have an account?
+          <p className="mt-5">
+            <strong>Already have an account?</strong>
           </p>
           <Button
             className="rounded-pill"
             variant="outline-primary"
             onClick={handleShowLogin}
           >
-            Sign in
+            <strong>Sign in</strong>
           </Button>
         </Col>
         <Modal
@@ -110,9 +122,15 @@ export default function AuthPage() {
           onHide={handleClose}
           animation={false}
           centered
+          style={{
+            backgroundColor: "rgba(91, 112, 131, 0.4)",
+          }}
         >
           <Modal.Body>
-            <h2 className="mb-4" style={{ fontWeight: "bold" }}>
+            <h2
+              className="mb-4 d-flex justify-content-center"
+              style={{ fontWeight: "bold", margin: "20px 0" }}
+            >
               {modalShow === "SignUp"
                 ? "Create your account"
                 : "Log in to your account"}
@@ -136,7 +154,7 @@ export default function AuthPage() {
                   placeholder="Password"
                 />
               </Form.Group>
-              <p style={{ fontSize: "12px" }}>
+              <p style={{ fontSize: "12px", color: "gray" }}>
                 By signing up, you agree to the Terms of Service and Privacy
                 Policy, including Cookie Use. TimTweets may use your contact
                 information, including your email address and phone number for
