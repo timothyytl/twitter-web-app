@@ -67,35 +67,40 @@ export default function AuthPage() {
       >
         <Image src={loginImage} width="450px" fluid />
       </Col>
-      <Col sm={6} className="p-4">
+      <Col sm={6} className="p-4 bg-black">
         <i
           className="bi bi-twitter"
           style={{ fontSize: 50, color: "dodgerblue" }}
         ></i>
-        <p className="mt-5" style={{ fontSize: 64 }}>
+        <p className="mt-5" style={{ fontSize: 64, color: "white" }}>
           <strong>Happening Now</strong>
         </p>
-        <h2 className="my-5" style={{ fontSize: 31 }}>
+        <h2 className="my-5" style={{ fontSize: 31, color: "white" }}>
           <strong>Join today.</strong>
         </h2>
         <Col sm={5} className="d-grid gap-2">
           <Button
-            className="rounded-pill"
-            variant="outline-dark"
+            className="rounded-pill border-white bg-light text-dark"
             onClick={handleGoogleLogin}
           >
             <i className="bi bi-google mx-2"></i>
             <strong>Sign up with Google</strong>
           </Button>
-          <Button className="rounded-pill" variant="outline-dark">
+          <Button
+            className="rounded-pill border-white bg-light text-dark"
+            variant="outline-dark"
+          >
             <i className="bi bi-apple mx-2"></i>{" "}
             <strong>Sign up with Apple</strong>
           </Button>
-          <Button className="rounded-pill" variant="outline-dark">
+          <Button
+            className="rounded-pill border-white bg-light text-dark"
+            variant="outline-dark"
+          >
             <i className="bi bi-facebook mx-2"></i>{" "}
             <strong>Sign up with Facebook</strong>
           </Button>
-          <p style={{ textAlign: "center" }}>or</p>
+          <p style={{ textAlign: "center", color: "white" }}>or</p>
           <Button className="rounded-pill" onClick={handleShowSignUp}>
             Create an account
           </Button>
@@ -105,7 +110,7 @@ export default function AuthPage() {
             <span style={{ color: "dodgerblue" }}>Privacy Policy</span>,
             including <span style={{ color: "dodgerblue" }}>Cookie Use.</span>
           </p>
-          <p className="mt-5">
+          <p className="mt-5 text-white">
             <strong>Already have an account?</strong>
           </p>
           <Button
