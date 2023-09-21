@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { Button, Col, Image, Row } from "react-bootstrap"
 import { useDispatch } from "react-redux"
 import {
@@ -6,15 +6,14 @@ import {
   likePost,
   removeLikeFromPost,
 } from "../features/posts/postsSlice"
-import { AuthContext } from "./AuthProvider"
+import { auth } from "../firebase"
 import UpdatePostModal from "./UpdatePostModal"
 
 export default function ProfilePostCard({ post }) {
   const { content, id: postId, imageUrl } = post
-  const dispatch = useDispatch()
   const [likes, setLikes] = useState(post.likes || [])
-  const { currentUser } = useContext(AuthContext)
-  const userId = currentUser.uid
+  const dispatch = useDispatch()
+  const userId = auth.currentUser.uid
 
   // user has liked the post if their id is in the likes array
   const isLiked = likes.includes(userId)
@@ -56,7 +55,7 @@ export default function ProfilePostCard({ post }) {
       </Col>
       <Col>
         <strong>Timothy</strong>
-        <span>@codesandtim * May 9</span>
+        <span>@codesandtim • May 9</span>
         <p>{content}</p>
         <Image src={imageUrl} style={{ width: 150 }} />
         <div className="d-flex justify-content-between">
@@ -78,7 +77,7 @@ export default function ProfilePostCard({ post }) {
             <i className="bi bi-graph-up"></i>
           </Button>
           <Button variant="light">
-            <i className="bi bi-upload"></i>
+            <i className="bi bi-upload"></i> 61
           </Button>
           <Button variant="light">
             <i

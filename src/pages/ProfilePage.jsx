@@ -13,10 +13,8 @@ export default function ProfilePage() {
 
   useEffect(() => {
     if (!currentUser) navigate("/login")
-    navigate("/login")
   }, [currentUser, navigate])
 
-  if (!currentUser) navigate("/login")
   const handleLogout = () => auth.signOut()
 
   return (

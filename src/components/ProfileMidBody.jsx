@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react"
 import { Button, Col, Image, Nav, Row, Spinner } from "react-bootstrap"
-import ProfilePostCard from "./ProfilePostCard"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchPostsByUser } from "../features/posts/postsSlice"
 import { AuthContext } from "./AuthProvider"
+import ProfilePostCard from "./ProfilePostCard"
 
 export default function ProfileMidBody() {
   const url =
@@ -50,11 +50,8 @@ export default function ProfileMidBody() {
         Timothy
       </p>
       <p style={{ marginBottom: "2px" }}>@codesandtim</p>
-      <p>
-        I help people switch careers to be a software developer at
-        sigmaschool.co
-      </p>
-      <p>Entrepreneur</p>
+      <p>Transitioning to software development</p>
+      <p>Software Developer</p>
       <p>
         <strong>271</strong> Following <strong>610</strong> Followers
       </p>
@@ -63,16 +60,16 @@ export default function ProfileMidBody() {
           <Nav.Link eventKey="/home">Tweets</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-1">Replies</Nav.Link>
+          <Nav.Link eventKey="replies">Replies</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Highlights</Nav.Link>
+          <Nav.Link eventKey="highlights">Highlights</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-3">Media</Nav.Link>
+          <Nav.Link eventKey="media">Media</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-4">Likes</Nav.Link>
+          <Nav.Link eventKey="likes">Likes</Nav.Link>
         </Nav.Item>
       </Nav>
       {loading && (

@@ -19,9 +19,7 @@ export default function AuthPage() {
   const handleShowLogin = () => setModalShow("Login")
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-
   const navigate = useNavigate()
-
   const auth = getAuth()
   const { currentUser } = useContext(AuthContext)
   const provider = new GoogleAuthProvider()
@@ -33,7 +31,8 @@ export default function AuthPage() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      await signInWithEmailAndPassword(auth, username, password)
+      const res = await signInWithEmailAndPassword(auth, username, password)
+      console.log(res.user)
     } catch (error) {
       console.error(error)
     }
@@ -164,7 +163,7 @@ export default function AuthPage() {
                 number, when provided, unless you choose otherwise here.
               </p>
               <Button className="rounded-pill" type="submit">
-                {modalShow === "SignUp" ? "SignUp" : "Log in"}
+                {modalShow === "SignUp" ? "Sign Up" : "Log in"}
               </Button>
             </Form>
           </Modal.Body>
